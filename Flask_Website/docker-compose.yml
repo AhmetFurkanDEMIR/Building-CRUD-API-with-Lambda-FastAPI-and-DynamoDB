@@ -1,0 +1,9 @@
+version: '3.0'
+services:
+  flask-web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    restart: on-failure

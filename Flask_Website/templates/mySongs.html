@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link rel="stylesheet" href="static/styles/master.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+    <div class="my-bar navbar-dark bg-dark">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/"><img class="ikon" src="static/img/Spotify_Logo_RGB_Green.png"
+                            width="auto" height="%100"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" style="justify-content: space-between;"
+                        id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+
+                        </div>
+
+                        <div class="navbar-nav">
+
+                            <a class="nav-link active" aria-current="page" href="/create"><i
+                                    class="fa-solid fa-plus"></i> Create Song</a>
+
+                            <a class="nav-link active" aria-current="page" href="/mySongs"><i
+                                    class="fa-solid fa-music"></i> My Songs</a>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+</body>
+
+<form method="POST" action="/login" enctype="multipart/form-data">
+
+    <div class="modal" id="loginUser" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <p class="modal-title" style="color:white" align="center"><i class="fa-solid fa-person"></i>
+                        Please enter your name and surname to continue.</p>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div align="center">
+
+                        <input type="text" class="form-control" name="name" placeholder="Name and Surname"
+                            style="background-color: #242424;color: white; border:1px solid white;" required>
+
+                    </div>
+
+                    <br>
+
+                    <div align="right">
+
+                        <button type="submit" class="btn btn-secondary">Enter the App</button>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<div class="song-box container">
+
+    <br> </br>
+
+    {% if flag==1 %}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+
+        <strong>Error!</strong> {{text}}
+
+
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+
+    </div>
+
+    {% elif flag==2 %}
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+        <strong>Success!</strong> {{text}}
+
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+
+    </div>
+
+    {% endif %}
+
+    <h3 class="margin-top-15" style="color:aliceblue"><i class="fa-solid fa-music"></i> My Songs</h3>
+
+    {% for song in songs %}
+
+    <form method="POST" action="/process" enctype="multipart/form-data">
+
+
+        <div class="modal" id="delete" tabindex="-1" aria-labelledby="delete" data-modal-color="dark"
+            aria-hidden="true">
+
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h4 class="modal-title" style="color:white"><i class="fa-solid fa-trash-can"></i> Delete Song -
+                            {{song["SongTittle"]}}</h4>
+
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true">
+
+                    </div>
+
+                    <div class="padding-15">
+
+                        <div align="right">
+
+                            <button type="submit" class="btn btn-danger" onclick="proccesTypeSet('delete');"><i
+                                    class="fa-solid fa-trash-can"></i> Delete Song</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="SongContent{{song['SongId']}}" data-modal-color="dark" aria-labelledby="SongContent"
+            tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+
+                        <h4 class="modal-title" style="color:white"><i
+                            class="fa-solid fa-music"></i> Song Content -
+                            {{song["SongTittle"]}}</h4>
+
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true">
+
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class=" ">
+                            <div><label class="fw-bold">Song Tittle : {{song["SongTittle"]}}</label></div>
+                            <div><label class="fw-bold">Artist : {{song["Artist"]}}</label></div>
+                            <div><label class="fw-bold">Song Genre : {{song["SongGenre"]}}</label></div>
+                            <div><label class="fw-bold">Song Production Date : {{song["SongProductionDate"]}}</label>
+                            </div>
+
+                            <hr style="color:white">
+                            </hr>
+
+                            <div><label class="fw-bold">Uploader of the song: {{song["LoaderName"]}}</label></div>
+                        </div>
+
+                        <br>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="SongUpdate{{song['SongId']}}" data-modal-color="dark" aria-labelledby="SongUpdate"
+            tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+
+                        <h4 class="modal-title" style="color:white"><i class="fa-solid fa-pen-clip"></i> Update Song -
+                            {{song["SongTittle"]}}</h4>
+
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true">
+
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class=" ">
+                            
+                            <div>
+                                
+                                <label class="fw-bold">Song Tittle <i class="fa-solid fa-arrow-down-long"></i></label>
+                                <br></br>
+                                <input type="text" class="form-control" name="SongTittle" value="{{song['SongTittle']}}" placeholder="Song Tittle"
+                            style="background-color: #242424;color: white; border:1px solid white;" required>
+                            </div>
+
+                            <hr style="color:white">
+                            </hr>
+
+                            <div>
+                                
+                                <label class="fw-bold">Artist <i class="fa-solid fa-arrow-down-long"></i></label>
+                                <br></br>
+                                <input type="text" class="form-control" name="Artist" value="{{song['Artist']}}" placeholder="Artist"
+                            style="background-color: #242424;color: white; border:1px solid white;" required>
+                            </div>
+
+                            <hr style="color:white">
+                            </hr>
+
+                            <div>
+                                
+                                <label class="fw-bold">Song Genre <i class="fa-solid fa-arrow-down-long"></i></label>
+                                <br></br>
+                                <input type="text" class="form-control" name="SongGenre" value="{{song['SongGenre']}}" placeholder="Song Genre"
+                            style="background-color: #242424;color: white; border:1px solid white;" required>
+                            </div>
+                            
+
+                            <hr style="color:white">
+                            </hr>
+
+                            <div align="right">
+                                
+                                <input type="hidden" name="SongId" id="SongId" value={{song['SongId']}}>
+                                <input type="hidden" name="SongProductionDate" id="SongProductionDate" value={{song['SongProductionDate']}}>
+
+                                <button type="submit" class="btn btn-warning" onclick="proccesTypeSet('update');"><i class="fa-solid fa-pen-clip"></i> Update</button>
+                            </div>
+                        </div>
+
+                        <br>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="song">
+
+            <div class="row g-0">
+
+                <div class=" ">
+                    <div><label class="fw-bold">Song Tittle : {{song["SongTittle"]}}</label></div>
+
+
+                    <hr style="color:white">
+                    </hr>
+
+                    <input type="hidden" name="SongId" id="SongId" value={{song['SongId']}}>
+                    <input type="hidden" name="processType" id="processType" value="-1">
+
+                    <button type="button" class="btn btn-success" data-toggle="modal"
+                        data-target="#SongContent{{song['SongId']}}"><i class="fa-solid fa-music"></i> Song
+                        Content</button>
+
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#SongUpdate{{song['SongId']}}"><i class="fa-solid fa-pen-clip"></i> Update</button>
+
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete"><i
+                            class="fa-solid fa-trash-can"></i> Delete</button>
+
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+    {% endfor %}
+
+    <br></br>
+    <br></br>
+
+</div>
+
+</div>
+
+{% if login==1 %}
+<script>
+
+    $(document).ready(function () {
+
+        $('#loginUser').attr('data-modal-color', "dark");
+
+        $("#loginUser").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+        $("#loginUser").modal('show');
+    });
+
+
+
+</script>
+
+{% else %}
+<script>
+
+    function proccesTypeSet(type) {
+
+        if (type == "delete") {
+            document.getElementById("processType").value = "0";
+        }
+
+        else if (type = "update") {
+            document.getElementById("processType").value = "1";
+        }
+
+
+    }
+</script>
+{% endif %}
+
+</html>
