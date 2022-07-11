@@ -7,11 +7,17 @@
 Hello, I'm Ahmet Furkan DEMİR, in this article/project I will show you how to create a CRUD API with Lambda, FastAPI and DynamoDB, we will make a platform like Spotify where we can upload our favorite songs while creating the API, have a good read.
 
 **Stages**
+
 ├──  What is Amazon DynamoDB
+
 ├── Create FastAPI
+
 ├── Running FastAPI in AWS Lambda Function
+
 ├── FastAPI connection with our Flask (Spotify) app
+
 ├── Deploying our Flask (Spotify) application on Amazon EC2
+
 └── The Finish
 
 
