@@ -3,7 +3,9 @@
 # Building CRUD API with Lambda, FastAPI and DynamoDB
 
 <div align="center">
+    
 ![spotifysema](https://user-images.githubusercontent.com/54184905/178221555-2e2a94dc-88e4-482d-b670-68ce811584ad.png)
+    
 </div>
 
 Hello, I'm Ahmet Furkan DEMİR, in this article/project I will show you how to create a CRUD API with Lambda, FastAPI and DynamoDB, we will make a platform like Spotify where we can upload our favorite songs while creating the API, have a good read.
