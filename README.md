@@ -60,7 +60,7 @@ We will be able to perform operations on the data in our table with the Post, Ge
 
 ### Running FastAPI in Lambda Function
 
-![0NcJuN79_ecUDN57C_1_800x](https://user-images.githubusercontent.com/54184905/178206312-c69881e7-2ad7-4af4-9301-db9ac29e71ad.png)
+![lambda_1_75](https://user-images.githubusercontent.com/54184905/178223560-b83d10c5-cf41-45c3-a6df-df21d88f2f0e.png)
 
 AWS Lambda is an event-driven, serverless computing platform provided by Amazon as a part of Amazon Web Services. It is a computing service that runs code in response to events and automatically manages the computing resources required by that code. It was introduced in November 2014.
 
