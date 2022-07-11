@@ -8,17 +8,17 @@ Hello, I'm Ahmet Furkan DEMİR, in this article/project I will show you how to c
 
 **Stages**
 
-├──  What is Amazon DynamoDB
+├──  [What is Amazon DynamoDB](https://github.com/AhmetFurkanDEMIR/Building-CRUD-API-with-Lambda-FastAPI-and-DynamoDB#what-is-amazon-dynamodb)
 
-├── Create FastAPI
+├── [Create FastAPI](https://github.com/AhmetFurkanDEMIR/Building-CRUD-API-with-Lambda-FastAPI-and-DynamoDB#create-fastapi)
 
-├── Running FastAPI in AWS Lambda Function
+├── [Running FastAPI in AWS Lambda Function](https://github.com/AhmetFurkanDEMIR/Building-CRUD-API-with-Lambda-FastAPI-and-DynamoDB#running-fastapi-in-lambda-function)
 
-├── FastAPI connection with our Flask (Spotify) app
+├── [FastAPI connection with our Flask (Spotify) app](https://github.com/AhmetFurkanDEMIR/Building-CRUD-API-with-Lambda-FastAPI-and-DynamoDB#fastapi-connection-with-our-flask-spotify-app)
 
-├── Deploying our Flask (Spotify) application on Amazon EC2
+├── [Deploying our Flask (Spotify) application on Amazon EC2](https://github.com/AhmetFurkanDEMIR/Building-CRUD-API-with-Lambda-FastAPI-and-DynamoDB#deploying-our-flask-spotify-application-on-amazon-ec2)
 
-└── The Finish
+└── [The Finish](https://github.com/AhmetFurkanDEMIR/Building-CRUD-API-with-Lambda-FastAPI-and-DynamoDB#the-finish)
 
 
 ### What is Amazon DynamoDB
