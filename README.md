@@ -67,7 +67,9 @@ Now that you have edited the .env file, we can deploy the API over localhost fro
 You can go to http://127.0.0.1:8000/docs and see the HTTP Mothods available in our API.
 
 <div align="center">
+    
 ![Screenshot_2022-07-11_09-41-40](https://user-images.githubusercontent.com/54184905/178204099-68b7b0a4-f4f2-43ff-9f11-013856008090.png)
+    
 </div>
 
 We will be able to perform operations on the data in our table with the Post, Get, Delete and Put methods above. Now that our FastAPI creation process is finished, we can now move on to the answer to the question of how we can deploy this API on AWS Lambda.
