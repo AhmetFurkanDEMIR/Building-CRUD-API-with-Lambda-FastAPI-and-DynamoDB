@@ -2,7 +2,9 @@
 
 # Building CRUD API with Lambda, FastAPI and DynamoDB
 
+<div align="center">
 ![spotifysema](https://user-images.githubusercontent.com/54184905/178221555-2e2a94dc-88e4-482d-b670-68ce811584ad.png)
+</div>
 
 Hello, I'm Ahmet Furkan DEMİR, in this article/project I will show you how to create a CRUD API with Lambda, FastAPI and DynamoDB, we will make a platform like Spotify where we can upload our favorite songs while creating the API, have a good read.
 
@@ -23,7 +25,9 @@ Hello, I'm Ahmet Furkan DEMİR, in this article/project I will show you how to c
 
 ### What is Amazon DynamoDB
 
+<div align="center">
 ![images-removebg-preview](https://user-images.githubusercontent.com/54184905/178202112-64342ff7-8172-4c9e-a1d7-1173eb846f00.png)
+</div>
 
 [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) is a fully managed proprietary NoSQL database service that supports key–value and document data structures and is offered by Amazon.com as part of the Amazon Web Services portfolio. DynamoDB exposes a similar data model to and derives its name from Dynamo, but has a different underlying implementation. Dynamo had a multi-leader design requiring the client to resolve version conflicts and DynamoDB uses synchronous replication across multiple data centers for high durability and availability. DynamoDB was announced by Amazon CTO Werner Vogels on January 18, 2012, and is presented as an evolution of Amazon SimpleDB.
 
@@ -36,7 +40,9 @@ We will use the Amazon DynomoDB NoSQL database to store the songs uploaded to ou
 
 ### Create FastAPI
 
+<div align="center">
 ![FastAPI_logo](https://user-images.githubusercontent.com/54184905/178194766-50e33c0c-a7bf-4efc-a0d8-51e53c85ae4b.png)
+</div>
 
 FastAPI is a Web framework for developing RESTful APIs in Python. FastAPI is based on Pydantic and type hints to validate, serialize, and deserialize data, and automatically auto-generate OpenAPI documents.
 
@@ -54,13 +60,17 @@ Now that you have edited the .env file, we can deploy the API over localhost fro
 
 You can go to http://127.0.0.1:8000/docs and see the HTTP Mothods available in our API.
 
+<div align="center">
 ![Screenshot_2022-07-11_09-41-40](https://user-images.githubusercontent.com/54184905/178204099-68b7b0a4-f4f2-43ff-9f11-013856008090.png)
+</div>
 
 We will be able to perform operations on the data in our table with the Post, Get, Delete and Put methods above. Now that our FastAPI creation process is finished, we can now move on to the answer to the question of how we can deploy this API on AWS Lambda.
 
 ### Running FastAPI in Lambda Function
 
+<div align="center">
 ![lambda_1_75](https://user-images.githubusercontent.com/54184905/178223560-b83d10c5-cf41-45c3-a6df-df21d88f2f0e.png)
+</div>
 
 AWS Lambda is an event-driven, serverless computing platform provided by Amazon as a part of Amazon Web Services. It is a computing service that runs code in response to events and automatically manages the computing resources required by that code. It was introduced in November 2014.
 
@@ -73,7 +83,9 @@ Now that we have deployed our FastAPI on Lambda, we can connect with our interfa
 
 ### FastAPI connection with our Flask (Spotify) app
 
+<div align="center">
 ![Çalışma Yüzeyi 1](https://user-images.githubusercontent.com/54184905/178221791-4890b6d2-507f-47c5-b562-3832664b6a6b.png)
+</div>
 
 Follow the directory [/Flask_Website](/Flask_Website) to access the Frontend and Backend of our Spotify application. Edit the [.env](/Flask_Website/.env) file found here again according to the ip address or url address of your own FastAPI.
 
@@ -133,7 +145,9 @@ With the python3 main.py command, you can deploy our Flask website and add your 
 
 ### Deploying our Flask (Spotify) application on Amazon EC2
 
+<div align="center">
 ![Çalışma Yüzeyi 1](https://user-images.githubusercontent.com/54184905/178222338-c96322f3-5077-4bbd-90c8-cfeffcd86441.png)
+</div>
 
 **Amazon EC2 :** Amazon Elastic Compute Cloud (EC2) is a part of Amazon.com's cloud-computing platform, Amazon Web Services (AWS), that allows users to rent virtual computers on which to run their own computer applications. EC2 encourages scalable deployment of applications by providing a web service through which a user can boot an Amazon Machine Image (AMI) to configure a virtual machine, which Amazon calls an "instance", containing any software desired. A user can create, launch, and terminate server-instances as needed, paying by the second for active servers – hence the term "elastic". EC2 provides users with control over the geographical location of instances that allows for latency optimization and high levels of redundancy. In November 2010, Amazon switched its own retail website platform to EC2 and AWS.
 
@@ -157,6 +171,8 @@ To deploy the Flask (Spotify) application on Amazon EC2 with Apache, proceed to 
 
 ### The Finish
 
+<div align="center">
 ![Screenshot_2022-07-11_11-11-15](https://user-images.githubusercontent.com/54184905/178218713-a3fadd19-73b4-4955-bec8-03361428456b.png)
+</div>
 
 After creating the architecture in the picture above, I opened a new Subdomain under the softforrange.com domain name and added a new dns record and directed this record to the machine running on EC2. So now the application I created via [spotify.softforrange.com](https://spotify.softforrange.com/) will be accessible.
