@@ -57,14 +57,14 @@ It fully supports asynchronous programming and can run with Uvicorn and Gunicorn
 With FastAPI, we will be able to add data to our table in our DynamoDB database, edit the data, delete the data and read the data. You can proceed to the FastAPI I created from the [/FastAPI_DynamoDB](/FastAPI_DynamoDB/) directory, do not forget to edit the [.env](/FastAPI_DynamoDB/.env) file under this directory according to your own AWS keys. If you do not make this edit, you will not be able to access DynamoDB in your AWS account and run the API.
 
 ```env
-AWS_ACCES_KEY_ID=***********
+AWS_ACCESS_KEY_ID=***********
 AWS_SECRET_ACCESS_KEY=***********
 REGION_NAME=us-east-1
 ```
 
 Now that you have edited the .env file, we can deploy the API over localhost from port 8000 with the python3 main.py command.
 
-You can go to http://127.0.0.1:8000/docs and see the HTTP Mothods available in our API.
+You can go to http://127.0.0.1:8000/docs and see the HTTP Methods available in our API.
 
 <div align="center">
     
